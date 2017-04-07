@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 	def create
 		user = User.find_by_name(params[:session][:name])
 		if user
-			if (user.name == "admin" && user.password == "nativ3")
+			if (user.name ==  params[:session][:name] && user.password == params[:session][:password])
 				sign_in(user)
 			end
 		end
