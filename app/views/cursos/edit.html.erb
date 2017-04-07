@@ -1,0 +1,17 @@
+<div class="center">
+ <!--  Formulario edit -->
+      <h1> Editar curso </h1>
+      <%= form_for(@curso) do |f| %>
+
+      <%= f.label :codigo %>
+      <%= f.text_field :codigo, class: 'form-control' %>
+
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre, class: 'form-control' %>
+
+      <%= f.label :observaciones %>
+      <%= f.text_field :observaciones, class: 'form-control' %>
+
+      <%= f.submit "Guardar cambios", class: "myButton" %>
+    <% end %>
+</div>

@@ -1,0 +1,18 @@
+<div class="center">
+<!--  Formulario crear estudiante -->
+	<h1> Crear estudiante </h1>
+	<%= form_for(:estudiante, url: estudiantes_path) do |f| %>
+     <%=f.text_field :identificacion, class: "form-control", placeholder: "ID or Cedula" %>
+     <%=f.text_field :nombres, class: "form-control", placeholder: "Nombres" %>
+     <%=f.text_field :apellidos, class: "form-control", placeholder: "Apellidos" %>
+     <%=f.text_field :genero, class: "form-control", placeholder: "Genero M or F" %>
+      <%= f.submit "Crear Estudiante", class: "myButton" %>
+	<%end%>
+	<!--  Listar, borrar y editar elementos -->
+	<h1> Lista de estudiantes </h1>
+	<% @estudiantes.each do |estudiante| %>
+		<p> <%=estudiante.nombres%> <%=estudiante.apellidos%>  </p> 
+		<%=link_to "Editar", edit_estudiante_path(estudiante), class: "myButton"%>
+		<%= link_to "Borrar", estudiante, method: :delete, data:{ confirm: "Esta seguro?"}, class: "myButton" %>
+	<%end%>
+</div>

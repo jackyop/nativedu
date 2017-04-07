@@ -1,0 +1,17 @@
+<div class="center">
+<!--  Formulario crear docentes -->
+	<h1> Crear Curso </h1>
+	<%= form_for(:curso, url: cursos_path) do |f| %>
+     <%=f.text_field :codigo, class: "form-control", placeholder: "codigo" %>
+     <%=f.text_field :nombre, class: "form-control", placeholder: "Nombre" %>
+     <%=f.text_field :observaciones, class: "form-control", placeholder: "Observaciones" %>
+      <%= f.submit "Crear curso", class: "myButton" %>
+	<%end%>
+	<!--  Listar, borrar y editar elementos -->
+	<h1> Lista de cursos </h1>
+	<% @cursos.each do |curso| %>
+		<p> <%=curso.codigo%> <%=curso.nombre%>  </p> 
+		<%=link_to "Editar", edit_curso_path(curso), class: "myButton"%>
+		<%= link_to "Borrar", curso, method: :delete, data:{ confirm: "Esta seguro?"}, class: "myButton" %>
+	<%end%>
+</div>
